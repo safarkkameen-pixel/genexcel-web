@@ -1,0 +1,54 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+nul
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# SQLite database
+*.db
+*.db-journal
+
+# GCP service account keys
+gha-key.json
+*.json.bak
+
+# Claude Code
+.claude/
+
+# Stray image files in root
+*.png
+*.jpg
+*.jpeg
+
+# Allow favicon and icon files
+!public/favicon*.png
+!public/apple-touch-icon.png
+!public/android-chrome-*.png
+!public/mstile-*.png
+!src/app/icon.png
+!src/app/apple-icon.png
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
