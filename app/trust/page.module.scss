@@ -1,0 +1,37 @@
+@use "../../styles/mixins";
+
+.pageTitle {
+  margin: 0 0 var(--space-4);
+}
+
+.pageIntro {
+  @include mixins.long-form-measure;
+  margin-bottom: var(--space-8);
+}
+
+.strip {
+  margin-top: var(--space-6);
+}
+
+.sectionTitle {
+  margin: 0 0 var(--space-4);
+}
+
+.paragraph {
+  margin-bottom: var(--space-4);
+}
+
+.legalLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+  text-align: center;
+}
+
+.legalButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}

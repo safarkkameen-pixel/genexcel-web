@@ -1,0 +1,61 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 480px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 350;
+    color: var(--color-heading);
+  }
+
+  input,
+  textarea {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border-strong);
+    font-size: 0.9375rem;
+    background: var(--color-bg-card);
+    color: var(--color-text);
+    resize: vertical;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 1px;
+    }
+  }
+
+  // Single-line fields go fully pill (--radius-sm is 100px under
+  // Phantom) — a multi-line textarea stays at the "card" radius instead,
+  // since a 100px radius on a tall box would eat visibly into the text
+  // area at the top/bottom corners.
+  input {
+    border-radius: var(--radius-sm);
+  }
+
+  textarea {
+    border-radius: var(--radius-md);
+  }
+}
+
+.statusRegion {
+  min-height: 1.5em;
+}
+
+.success {
+  color: var(--color-success-500);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.error {
+  color: var(--color-error-500);
+  font-size: 0.9375rem;
+  margin: 0;
+}

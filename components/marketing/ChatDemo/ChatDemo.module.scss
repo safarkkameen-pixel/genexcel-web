@@ -1,0 +1,51 @@
+.demo {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.caption {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  margin: 0 0 var(--space-4);
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.bubble {
+  max-width: 80%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.student {
+  align-self: flex-end;
+  background: var(--color-accent);
+  color: var(--color-paper-0);
+}
+
+.helix {
+  align-self: flex-start;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+}
+
+.speaker {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 350;
+  opacity: 0.75;
+  margin-bottom: var(--space-1);
+}
+
+.text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}

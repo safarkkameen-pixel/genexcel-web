@@ -1,0 +1,23 @@
+.blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  // Only the standard property — Next's build pipeline auto-generates the
+  // -webkit- prefix; hand-writing both causes it to collapse them into just
+  // one declaration (verified while fixing the identical issue in Header).
+  backdrop-filter: blur(14px);
+  z-index: 2;
+}
+
+.top {
+  top: 0;
+  mask-image: linear-gradient(to bottom, black, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.bottom {
+  bottom: 0;
+  mask-image: linear-gradient(to top, black, transparent);
+  -webkit-mask-image: linear-gradient(to top, black, transparent);
+}

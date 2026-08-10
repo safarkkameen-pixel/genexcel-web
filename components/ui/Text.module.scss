@@ -1,0 +1,61 @@
+@use "../../styles/mixins";
+
+.text {
+  font-family: var(--font-body);
+  margin: 0;
+  // Phantom's hard rule: -0.025em tracking at every size, no exceptions.
+  letter-spacing: -0.025em;
+}
+
+.measure {
+  @include mixins.long-form-measure;
+}
+
+// "Body Large" — Phantom's "subheading" (20px) tier, used for lead
+// paragraphs under a headline. Stays at the inherited 350 weight.
+.lg {
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+// "Body" — Phantom's 16px tier. This is the one place Phantom
+// specifically sanctions weight 400 over the 350 default ("reserved for
+// body copy that needs slightly more presence") — ordinary paragraphs
+// are exactly that case.
+.base {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+// "Caption" — Phantom's smallest (13px) tier.
+.sm {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.default {
+  color: var(--color-text);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.faint {
+  color: var(--color-text-faint);
+}
+
+.inverse {
+  color: var(--color-text-inverse);
+}
+
+.inverse-muted {
+  color: var(--color-text-inverse-muted);
+}

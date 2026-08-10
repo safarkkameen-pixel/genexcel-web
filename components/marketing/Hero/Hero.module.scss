@@ -1,0 +1,85 @@
+.hero {
+  position: relative;
+  padding-block: var(--space-24) var(--space-16);
+  background: var(--color-bg);
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    padding-block: var(--space-40) var(--space-24);
+  }
+}
+
+.dark {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  // Same reasoning as Section.module.scss's .inverse: .heading reads an
+  // explicit --color-heading now rather than `color: inherit`, so this
+  // redefines the custom property locally instead of relying on plain
+  // inheritance to reach it.
+  --color-heading: var(--color-text-inverse);
+}
+
+// The WebGL contour field fills the whole hero and sits behind the text
+// and image (both of which carry their own z-index). pointer-events come
+// from the canvas itself (set inline by Topography) so the hero copy and
+// CTAs stay fully interactive.
+.topography {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+// When a hero image is present, text centers above it (matches the
+// reference's landing-hero composition) instead of sitting left-aligned
+// in its own narrow column.
+.centered {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.heading {
+  margin: 0;
+  // MaskedHeading (unlike the Heading primitive) doesn't prescribe its
+  // own type scale — it's a reveal mechanic, sized by whoever uses it.
+  // This is the one and only place it's used, always as the page's H1,
+  // so it gets the "Hero" tier directly. Keep this in sync with
+  // Heading.module.scss's .display-xl if that scale ever changes.
+  color: var(--color-heading);
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 350;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.subhead {
+  max-width: 56ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.imageWrap {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-16);
+}
+
+.caption {
+  display: block;
+  margin-top: var(--space-5);
+  text-align: center;
+}

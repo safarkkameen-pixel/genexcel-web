@@ -1,0 +1,24 @@
+.scrollFloat {
+  overflow: hidden;
+  margin: 0;
+  font-family: var(--font-display);
+  // Deliberately no font-size/weight here — unlike the React Bits
+  // reference (which hardcodes a huge clamp), this is sized by whoever
+  // uses it, same convention as MaskedHeading and every other text
+  // primitive in this codebase.
+}
+
+.scrollFloatText {
+  display: inline-block;
+}
+
+.char {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,250 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  // Full-width hairline bar, part of the page rather than a floating
+  // object: solid background, no rounding, no shadow, no glass. The
+  // dropdowns are absolutely positioned against this header, and since
+  // the header itself carries no filter/backdrop-filter, it never
+  // becomes their containing block (a gotcha this project has hit
+  // before).
+  background: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-border);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  @media (min-width: 1024px) {
+    padding-inline: var(--space-8);
+  }
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.desktopNav {
+  display: none;
+
+  @media (min-width: 900px) {
+    display: block;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.navItem {
+  position: relative;
+}
+
+.navTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-text-muted);
+  padding: var(--space-2) 0;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.navTriggerOpen {
+  color: var(--color-text);
+
+  .chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.chevron {
+  font-size: 0.625rem;
+  opacity: 0.7;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+// The hit-testable region: starts flush against the trigger (`top: 100%`,
+// no gap) and uses padding — not a margin/offset — to hold the visual
+// panel the same distance below it. Padding closes the dead zone where
+// moving the cursor from trigger to panel would otherwise trigger
+// mouseleave on the <li>.
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: var(--space-2);
+  z-index: 10;
+}
+
+.megaMenuPanel {
+  min-width: 240px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(28, 28, 28, 0.08);
+  padding: var(--space-1);
+  animation: menuIn var(--duration-fast) var(--ease-out);
+}
+
+.megaMenuLink {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 8px;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+
+  &:hover {
+    background: var(--color-bg-alt);
+  }
+}
+
+.megaMenuLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.megaMenuDescription {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.loginLink {
+  display: none;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  padding: var(--space-2) var(--space-1);
+  transition: color var(--duration-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--color-text);
+  }
+
+  @media (min-width: 900px) {
+    display: inline-flex;
+  }
+}
+
+.mobileToggle {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  margin-inline: calc(-1 * var(--space-2));
+  flex-shrink: 0;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.burgerLine {
+  width: 18px;
+  height: 1.5px;
+  background: var(--color-text);
+  border-radius: 1px;
+}
+
+.mobileMenu {
+  // Full-width panel that slides out directly beneath the bar — square
+  // corners, a hairline bottom border, no floating card treatment.
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 16px 32px rgba(28, 28, 28, 0.1);
+  padding: var(--space-2) var(--space-6) var(--space-4);
+  z-index: 99;
+  animation: menuIn var(--duration-fast) var(--ease-out);
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+
+  @media (min-width: 1024px) {
+    padding-inline: var(--space-8);
+  }
+
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.mobileMenuList {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuLink {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--duration-fast) var(--ease-standard);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

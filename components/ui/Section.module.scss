@@ -1,0 +1,46 @@
+.section {
+  width: 100%;
+}
+
+.default {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.alt {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.inverse {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  // Heading now reads an explicit --color-heading (Phantom's
+  // heading/body color split) instead of `color: inherit`, so it no
+  // longer automatically picks up this section's inverse text color the
+  // way it used to. Redefining the custom property here — rather than
+  // the plain `color` above — cascades to every descendant Heading
+  // (present or future) without each one needing its own dark-mode
+  // override, the same way --color-text already cascades via `inherit`.
+  --color-heading: var(--color-text-inverse);
+}
+
+.sm {
+  padding-block: var(--space-10);
+}
+
+.md {
+  padding-block: var(--space-16);
+
+  @media (min-width: 1024px) {
+    padding-block: var(--space-20);
+  }
+}
+
+.lg {
+  padding-block: var(--space-20);
+
+  @media (min-width: 1024px) {
+    padding-block: var(--space-40);
+  }
+}

@@ -1,0 +1,99 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  // --radius-sm is 100px under the Phantom system — every button is a
+  // full pill via this one token, no radius override needed here.
+  border-radius: var(--radius-sm);
+  font-weight: 350;
+  letter-spacing: -0.025em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard),
+    opacity var(--duration-base) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: 14px;
+}
+
+.md {
+  padding: var(--space-3) var(--space-6);
+  font-size: 16px;
+}
+
+.lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: 16px;
+}
+
+// The signature primary CTA: Ghost Lavender fill, aubergine text, and
+// the one shadow Phantom allows anywhere in the system — applied here
+// specifically via --shadow-glow, not the general --shadow-* chain
+// (which stays `none` everywhere else, so cards/menus never pick this
+// up just by referencing a shared shadow token).
+.primary {
+  background: var(--color-cta-bg);
+  color: var(--color-cta-text);
+  border-color: var(--color-cta-bg);
+  box-shadow: var(--shadow-glow);
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+// Ash fill — Phantom names this exact role ("neutral button surface")
+// for a quieter, non-primary action.
+.secondary {
+  background: var(--color-ash);
+  color: var(--color-aubergine);
+  // --color-border-strong, not literal aubergine: in dark mode the page
+  // canvas itself is aubergine, so a literal aubergine border would
+  // blend invisibly into it — --color-border-strong flips to paper-white
+  // in dark mode, staying visible against either canvas. The ash fill
+  // and aubergine text stay fixed in both themes (self-contained, like
+  // the primary button's Ghost Lavender), so only the border needed this.
+  border-color: var(--color-border-strong);
+
+  &:hover {
+    background: var(--color-bg-alt);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-heading);
+  border-color: transparent;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+// One of Phantom's pastel accent set (buttercream) — used freely
+// alongside primary/secondary, not reserved for a single scarce action
+// the way the previous system's "accent" variant worked.
+.accent {
+  background: var(--color-buttercream);
+  color: var(--color-obsidian);
+  border-color: var(--color-buttercream);
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}

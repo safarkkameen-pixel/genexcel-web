@@ -1,0 +1,10 @@
+.body {
+  max-width: 68ch;
+  margin-bottom: var(--space-6);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}

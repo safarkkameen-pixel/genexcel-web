@@ -1,0 +1,42 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 350;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.inverse {
+  color: var(--color-text-inverse-muted);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  // Phantom's periwinkle is a freely-usable accent (interactive AND
+  // decorative), unlike the previous system's neutral --color-accent —
+  // so this reads straight through the semantic alias again instead of
+  // needing a dedicated "informational-only" token.
+  background: var(--color-accent);
+}
+
+.violet {
+  background: var(--color-accent-secondary);
+}
+
+.neutral {
+  background: var(--color-slate-400);
+}
+
+.dotInverse {
+  background: var(--color-accent-inverse);
+}
+
+.dotInverse.violet {
+  background: var(--color-violet-400);
+}

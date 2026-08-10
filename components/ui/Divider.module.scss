@@ -1,0 +1,9 @@
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.inverse {
+  border-top-color: var(--color-border-inverse);
+}

@@ -1,0 +1,42 @@
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-16);
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-10);
+  }
+}
+
+.step {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+}
+
+.stepNum {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 350;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 350;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.testimonials {
+  margin-top: var(--space-16);
+}
+
+.pricing {
+  margin-top: var(--space-16);
+}

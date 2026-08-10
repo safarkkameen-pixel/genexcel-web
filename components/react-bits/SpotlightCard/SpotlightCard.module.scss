@@ -1,0 +1,46 @@
+.card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--color-slate-300);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+// A barely-there pointer-tracked highlight — most of the hover feedback
+// comes from the border/shadow above; this just adds a whisper of depth.
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-standard);
+  // --color-aubergine at low opacity — CSS can't parameterize an rgba()
+  // alpha from a hex custom property without color-mix(), so this is
+  // hardcoded (rgb(28,28,28) = #1c1c1c, the current aubergine value)
+  // rather than derived from the token directly.
+  background: radial-gradient(
+    220px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(28, 28, 28, 0.06),
+    transparent 70%
+  );
+}
+
+.card:hover .spotlight,
+.card:focus-within .spotlight {
+  opacity: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-8);
+}

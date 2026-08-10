@@ -1,0 +1,10 @@
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.inverse {
+  justify-content: flex-start;
+}

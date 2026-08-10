@@ -1,0 +1,30 @@
+.band {
+  // The background-image texture that lived here is removed: Phantom's
+  // own rule is explicit — "surface is always flat color... don't use
+  // gradients, patterns, or background images." The flat
+  // --color-bg-inverse fill from the parent Section is the whole
+  // background now, matching Phantom's Aubergine dark-section spec.
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.heading {
+  margin: 0;
+}
+
+.body {
+  max-width: 48ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-top: var(--space-2);
+}

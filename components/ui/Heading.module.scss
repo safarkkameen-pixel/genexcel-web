@@ -1,0 +1,48 @@
+.heading {
+  font-family: var(--font-display);
+  // Phantom distinguishes heading color (aubergine) from body-copy color
+  // (obsidian) — this reads the dedicated --color-heading token instead
+  // of inheriting, so headings get their own identity regardless of
+  // whatever ambient text color a parent sets.
+  color: var(--color-heading);
+  // Phantom's hard rule: -0.025em tracking at every size, no exceptions.
+  letter-spacing: -0.025em;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+// display-xl = "Hero" tier — Phantom's own "display" size (96px) is
+// large enough for real hero impact, unlike the previous system's
+// reference which needed a deliberate departure from its own scale.
+.display-xl {
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 350;
+  line-height: 1.05;
+}
+
+// display-lg = "heading-lg" tier — Phantom's 64px H1.
+.display-lg {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 350;
+  line-height: 1.1;
+}
+
+// display-md = "heading" tier — Phantom's 30px H2.
+.display-md {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 350;
+  line-height: 1.21;
+}
+
+// heading-sm = Phantom's 24px H3 tier.
+.heading-sm {
+  font-size: clamp(19px, 1.6vw, 24px);
+  font-weight: 350;
+  line-height: 1.25;
+}

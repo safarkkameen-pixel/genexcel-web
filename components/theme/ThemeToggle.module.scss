@@ -1,0 +1,41 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard);
+
+  &:hover {
+    background: var(--color-accent-tint);
+    color: var(--color-text);
+  }
+}
+
+.sun,
+.moon {
+  width: 16px;
+  height: 16px;
+}
+
+// Default (no attribute yet, e.g. the instant before ThemeScript runs)
+// and explicit light both show the sun; dark shows the moon. Pure CSS,
+// so this can never disagree with what's actually painted.
+.moon {
+  display: none;
+}
+
+:global([data-theme="dark"]) .sun {
+  display: none;
+}
+
+:global([data-theme="dark"]) .moon {
+  display: block;
+}

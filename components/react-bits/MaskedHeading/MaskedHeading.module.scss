@@ -1,0 +1,35 @@
+.heading {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  // Word-spacing as a margin, not a trailing space character in the text
+  // content — a space at the end of an overflow:hidden inline-block gets
+  // trimmed by the browser's line-end whitespace collapsing, which is
+  // exactly what was squashing every word together.
+  margin-right: 0.25em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
+  transition: transform var(--duration-slow) var(--ease-out),
+    opacity var(--duration-slow) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}

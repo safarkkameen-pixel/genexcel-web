@@ -1,0 +1,77 @@
+@use "../../../styles/mixins";
+
+.footer {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.columns {
+  @include mixins.container;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-10) var(--space-8);
+  padding-block: var(--space-16);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.columnTitle {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 350;
+  text-transform: uppercase;
+  color: var(--color-text-inverse-muted);
+  margin: 0 0 var(--space-5);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  a {
+    font-size: 0.9375rem;
+    color: var(--color-text-inverse);
+
+    // --color-accent-inverse is the same tone as the resting text colour
+    // now, so an underline carries the hover feedback instead.
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+}
+
+.bottom {
+  @include mixins.container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-border-inverse);
+  font-size: 0.8125rem;
+  color: var(--color-text-inverse-muted);
+
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.bottomBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.accreditation {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: inline;
+  }
+}

@@ -1,0 +1,5 @@
+.magnet {
+  display: inline-block;
+  transition: transform var(--duration-fast) var(--ease-out);
+  will-change: transform;
+}
