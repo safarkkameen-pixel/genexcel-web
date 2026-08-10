@@ -1,12 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Badge } from '@/components/ui/Badge';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { TextReveal } from '@/components/ui/TextReveal';
-import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { PageHero, GradientText } from '@/components/ui/PageHero';
 import {
-  Scale,
   Building,
   FileCheck,
   KeyRound,
@@ -23,51 +20,14 @@ import {
 
 
 export default function DPDPCompliancePage() {
-  useSmoothScroll();
-
   return (
-    <main className="pt-20">
-      {/* Hero Section */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 -z-10" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-violet-200/30 dark:bg-violet-900/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200/30 dark:bg-blue-900/20 rounded-full blur-3xl" />
-
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Badge variant="gradient" className="mb-6">
-                <Scale className="h-3 w-3 mr-1" />
-                Data Protection
-              </Badge>
-            </motion.div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-              <TextReveal>DPDP</TextReveal>
-              <br />
-              <span className="gradient-text">
-                <TextReveal delay={0.3}>Compliance Notice</TextReveal>
-              </span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed"
-            >
-              Digital Personal Data Protection Act, 2023 (India) &mdash; This notice explains how Curanova complies with the DPDP Act in relation to the GenExcel mobile application.
-            </motion.p>
-
-            
-
-          </div>
-        </div>
-      </section>
+    <main>
+      <PageHero
+        icon={FileCheck}
+        eyebrow="Data Protection"
+        title={<>DPDP <GradientText>Compliance Notice</GradientText></>}
+        subtitle="Digital Personal Data Protection Act, 2023 (India) — This notice explains how Curanova complies with the DPDP Act in relation to the GenExcel mobile application."
+      />
 
       {/* Section 1: Data Fiduciary Information */}
       <section className="section-padding bg-white dark:bg-slate-900">

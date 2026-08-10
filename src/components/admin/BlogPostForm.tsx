@@ -11,6 +11,7 @@ import { Loader2, Save, ArrowLeft, ImageIcon, X, FolderOpen, Upload, Link2 } fro
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { MediaPickerModal } from './MediaPickerModal';
+import { adminFetch, AdminSessionExpiredError } from '@/lib/adminFetch';
 
 const TipTapEditor = dynamic(
   () => import('./TipTapEditor').then((mod) => ({ default: mod.TipTapEditor })),
@@ -90,7 +91,7 @@ export function BlogPostForm({ post, categories }: BlogPostFormProps) {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      const res = await fetch('/api/admin/upload', { method: 'POST', body: formData });
+      const res = await adminFetch('/api/admin/upload', { method: 'POST', body: formData });
       if (!res.ok) {
         const err = await res.json();
         throw new Error(err.error || 'Upload failed');
@@ -99,7 +100,9 @@ export function BlogPostForm({ post, categories }: BlogPostFormProps) {
       setValue('featuredImage', data.url);
       toast.success('Image uploaded!');
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Upload failed');
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error(err instanceof Error ? err.message : 'Upload failed');
+      }
     } finally {
       setUploading(false);
     }
@@ -118,7 +121,7 @@ export function BlogPostForm({ post, categories }: BlogPostFormProps) {
         ? `/api/admin/blog/${post.id}`
         : '/api/admin/blog';
 
-      const res = await fetch(url, {
+      const res = await adminFetch(url, {
         method: isEditing ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -138,7 +141,9 @@ export function BlogPostForm({ post, categories }: BlogPostFormProps) {
       router.push('/admin/blog');
       router.refresh();
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Something went wrong');
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error(err instanceof Error ? err.message : 'Something went wrong');
+      }
     }
   };
 

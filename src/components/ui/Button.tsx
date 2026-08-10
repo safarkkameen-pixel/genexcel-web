@@ -12,20 +12,23 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: [
-          'bg-gradient-to-r from-primary-600 to-primary-500 text-white',
-          'shadow-lg shadow-primary-500/30',
-          'hover:shadow-xl hover:shadow-primary-500/40',
-          'hover:from-primary-500 hover:to-primary-400',
+          'text-white bg-gradient-to-br from-primary-600 to-secondary-500 shadow-md',
+          'hover:opacity-90',
+          'dark:text-[#F2FEFF] dark:bg-gradient-to-br dark:from-white/[.32] dark:via-[#22D3EE]/[.24] dark:to-[#60A5FA]/20',
+          'dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border dark:border-white/[.36]',
+          'dark:shadow-[0_10px_26px_rgba(4,14,30,.35)] dark:hover:border-white/50 dark:hover:opacity-100',
           'focus-visible:ring-primary-500',
           'active:scale-[0.98]',
         ],
         secondary: [
-          'border-2 border-primary-200 dark:border-primary-700 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-primary-700 dark:text-primary-300',
-          'hover:border-primary-300 dark:hover:border-primary-600 hover:bg-primary-50 dark:hover:bg-slate-700',
+          'text-slate-700 bg-white border border-slate-300 hover:bg-slate-50',
+          'dark:text-[#E9F4FF] dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.13] dark:to-white/[.05]',
+          'dark:backdrop-blur-xl dark:backdrop-saturate-150 dark:border-white/20',
+          'dark:hover:border-white/[.38] dark:hover:from-white/20 dark:hover:to-[#22D3EE]/[.14]',
           'focus-visible:ring-primary-500',
         ],
         ghost: [
-          'text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-slate-800',
+          'text-slate-700 dark:text-[#C7D2E5] hover:text-primary-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10',
           'focus-visible:ring-primary-500',
         ],
         glow: [
@@ -35,8 +38,8 @@ const buttonVariants = cva(
           'animate-gradient bg-[length:200%_auto]',
         ],
         outline: [
-          'border-2 border-slate-200 dark:border-slate-700 bg-transparent text-slate-700 dark:text-slate-300',
-          'hover:border-primary-500 dark:hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400',
+          'text-slate-700 bg-transparent border border-slate-300 dark:border-white/20 dark:text-[#E9F4FF]',
+          'hover:border-primary-500 hover:text-primary-600 dark:hover:border-white/40 dark:hover:text-white',
           'focus-visible:ring-primary-500',
         ],
       },

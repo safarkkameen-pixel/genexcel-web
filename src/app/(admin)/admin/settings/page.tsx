@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { AdminShell } from '@/components/admin/AdminShell';
 import { Save, Loader2 } from 'lucide-react';
+import { adminFetch, AdminSessionExpiredError } from '@/lib/adminFetch';
 
 export default function SettingsPage() {
   const [settings, setSettings] = useState({
@@ -20,7 +21,7 @@ export default function SettingsPage() {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    fetch('/api/admin/settings')
+    adminFetch('/api/admin/settings')
       .then((res) => res.json())
       .then((data) => {
         if (data.settings) {
@@ -33,15 +34,17 @@ export default function SettingsPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const res = await fetch('/api/admin/settings', {
+      const res = await adminFetch('/api/admin/settings', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(settings),
       });
       if (!res.ok) throw new Error('Failed to save');
       toast.success('Settings saved!');
-    } catch {
-      toast.error('Failed to save settings');
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error('Failed to save settings');
+      }
     } finally {
       setSaving(false);
     }

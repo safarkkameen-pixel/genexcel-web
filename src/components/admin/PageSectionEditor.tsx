@@ -15,6 +15,7 @@ import {
   GripVertical,
 } from 'lucide-react';
 import Link from 'next/link';
+import { adminFetch, AdminSessionExpiredError } from '@/lib/adminFetch';
 
 interface Section {
   id: string;
@@ -431,7 +432,7 @@ export function PageSectionEditor({
         contentToSave = raw;
       }
 
-      const res = await fetch(`/api/admin/pages/${page}/${sectionName}`, {
+      const res = await adminFetch(`/api/admin/pages/${page}/${sectionName}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: contentToSave }),
@@ -442,8 +443,10 @@ export function PageSectionEditor({
       const label = sectionLabels[sectionName] || sectionName;
       toast.success(`${label} saved successfully!`);
       router.refresh();
-    } catch {
-      toast.error('Failed to save. Please try again.');
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error('Failed to save. Please try again.');
+      }
     } finally {
       setSaving(null);
     }

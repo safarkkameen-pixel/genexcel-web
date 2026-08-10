@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Sora } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 
@@ -9,19 +9,27 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  display: 'swap',
+  variable: '--font-sora',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} - Pediatric Health & Genomics Platform`,
+    default: `${siteConfig.name} - Genomics-Led Learning & Wellness Platform`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    'pediatric health',
     'genetic testing for children',
+    'AI tutor for kids',
+    'School Genomics',
+    'personalized learning',
     'child nutrition app',
     'brain games for kids',
-    'personalized health',
     'genomics',
     'AI health platform',
     'child wellness',
@@ -67,13 +75,28 @@ export const metadata: Metadata = {
   },
 };
 
+const themeInitScript = `
+(function () {
+  try {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'dark' || (!saved && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${sora.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="font-sans antialiased">
         {children}
       </body>

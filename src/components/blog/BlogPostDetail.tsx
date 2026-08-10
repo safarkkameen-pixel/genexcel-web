@@ -26,7 +26,7 @@ export function BlogPostDetail({ post }: { post: Post }) {
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="relative py-20 bg-gradient-to-b from-slate-900 to-slate-800">
+      <section className="relative z-[1]" style={{ padding: 'clamp(112px,16vh,168px) 24px 48px' }}>
         <div className="container-custom max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -35,23 +35,26 @@ export function BlogPostDetail({ post }: { post: Post }) {
           >
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-[#8B9AB5] hover:text-cyan-600 dark:hover:text-cyan-300 mb-6 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
             </Link>
 
             {post.category && (
-              <span className="inline-block px-3 py-1 bg-primary-500/20 text-primary-400 text-sm font-medium rounded-full mb-4">
+              <span className="inline-flex items-center py-[9px] px-4 mb-4 rounded-full border border-slate-200 bg-white shadow-glass text-xs font-semibold tracking-[0.02em] text-slate-600 dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.16] dark:to-white/[.05] dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border-white/20 dark:shadow-none dark:text-[#C7D2E5]">
                 {post.category.name}
               </span>
             )}
 
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1
+              className="font-display font-light text-slate-900 dark:text-white tracking-[-0.035em] leading-[1.08] mb-6 text-balance"
+              style={{ fontSize: 'clamp(30px,4.6vw,52px)' }}
+            >
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-4 text-sm text-slate-400">
+            <div className="flex items-center gap-4 text-sm text-slate-600 dark:text-[#8B9AB5]">
               <span className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 {post.author.name}
@@ -86,20 +89,20 @@ export function BlogPostDetail({ post }: { post: Post }) {
         <div className="container-custom max-w-3xl">
           <div
             className="prose prose-lg prose-slate dark:prose-invert max-w-none
-              prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white
-              prose-a:text-primary-500 prose-a:no-underline hover:prose-a:underline
+              prose-headings:font-display prose-headings:font-light prose-headings:text-slate-900 dark:prose-headings:text-white
+              prose-a:text-cyan-600 dark:prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline
               prose-img:rounded-xl prose-img:shadow-lg"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
 
           {/* Tags */}
           {post.tags.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2 mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
-              <Tag className="w-4 h-4 text-slate-400" />
+            <div className="flex flex-wrap items-center gap-2 mt-12 pt-8 border-t border-slate-200 dark:border-white/[.15]">
+              <Tag className="w-4 h-4 text-slate-400 dark:text-[#8B9AB5]" />
               {post.tags.map(({ tag }) => (
                 <span
                   key={tag.slug}
-                  className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-sm text-slate-600 dark:text-slate-400 rounded-full"
+                  className="px-3 py-1 bg-slate-100 text-sm text-slate-600 rounded-full dark:bg-transparent dark:bg-gradient-to-br dark:from-white/10 dark:to-white/[.03] dark:backdrop-blur-xl dark:border dark:border-white/[.15] dark:text-[#C7D2E5]"
                 >
                   {tag.name}
                 </span>

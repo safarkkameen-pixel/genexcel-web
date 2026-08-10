@@ -3,8 +3,7 @@
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/Badge';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { TextReveal } from '@/components/ui/TextReveal';
-import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { PageHero, GradientText } from '@/components/ui/PageHero';
 import {
   Shield,
   Eye,
@@ -22,49 +21,14 @@ import {
 
 
 export default function PrivacyPolicyPage() {
-  useSmoothScroll();
-
   return (
-    <main className="pt-20">
-      {/* Hero Section */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 -z-10" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-200/30 dark:bg-primary-900/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-200/30 dark:bg-secondary-900/20 rounded-full blur-3xl" />
-
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Badge variant="gradient" className="mb-6">
-                <Shield className="h-3 w-3 mr-1" />
-                Your Privacy Matters
-              </Badge>
-            </motion.div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-              <TextReveal>Privacy</TextReveal>
-              <br />
-              <span className="gradient-text">
-                <TextReveal delay={0.3}>Policy</TextReveal>
-              </span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed"
-            >
-              We are committed to protecting your privacy and ensuring transparency in how we handle your data.
-            </motion.p>
-
-          </div>
-        </div>
-      </section>
+    <main>
+      <PageHero
+        icon={Shield}
+        eyebrow="Your Privacy Matters"
+        title={<>Privacy <GradientText>Policy</GradientText></>}
+        subtitle="We are committed to protecting your privacy and ensuring transparency in how we handle your data."
+      />
 
       {/* Intro */}
       <section className="py-12 bg-white dark:bg-slate-900">

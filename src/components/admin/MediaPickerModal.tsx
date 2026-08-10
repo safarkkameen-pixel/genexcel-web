@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Search, X, ImageIcon, Loader2, Check } from 'lucide-react';
+import { adminFetch } from '@/lib/adminFetch';
 
 interface MediaItem {
   id: string;
@@ -27,7 +28,7 @@ export function MediaPickerModal({ open, onClose, onSelect }: MediaPickerModalPr
     if (open) {
       setLoading(true);
       setSelected(null);
-      fetch('/api/admin/media')
+      adminFetch('/api/admin/media')
         .then((res) => res.json())
         .then((data) => {
           setMedia(data.media || []);

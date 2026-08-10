@@ -17,26 +17,23 @@ const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(
       <div
         ref={ref}
         className={cn(
-          // Base glassmorphism
+          // Base glassmorphism — matches the homepage's aqua/glass recipe
           'relative overflow-hidden rounded-3xl',
-          'bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl backdrop-saturate-150',
-          'border border-white/30 dark:border-slate-700/30',
-          'shadow-glass dark:shadow-none',
+          'bg-white border border-slate-200 shadow-glass',
+          'dark:bg-transparent dark:bg-gradient-to-br dark:from-white/10 dark:to-white/[.03]',
+          'dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border-white/[.15] dark:shadow-none',
 
           // Hover effects
           hover && [
             'transition-all duration-300 ease-out',
-            'hover:shadow-glass-lg dark:hover:shadow-lg dark:hover:shadow-slate-900/50',
-            'hover:border-primary-100/50 dark:hover:border-primary-500/30',
-            'hover:bg-white/80 dark:hover:bg-slate-800/80',
-            'hover:-translate-y-1',
+            'hover:-translate-y-1 hover:border-slate-300 dark:hover:border-white/[.34]',
           ],
 
           // Glow effect
-          glow && 'hover:shadow-glow',
+          glow && 'hover:shadow-glow dark:hover:shadow-none',
 
           // Gradient background
-          gradient && 'bg-gradient-to-br from-white/80 via-white/60 to-primary-50/40 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-primary-900/40',
+          gradient && 'bg-gradient-to-br from-white via-white to-cyan-50/60 dark:from-white/[.14] dark:to-white/[.05]',
 
           className
         )}

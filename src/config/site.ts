@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'GenExcel.ai',
-  description: 'The AI-powered pediatric health platform combining genetic insights with personalized nutrition, brain games, and wellness tracking for children ages 4-18.',
+  description: "GenExcel pairs a child's genetic report with Helix, an AI tutor grounded in their own textbooks, plus genetics-adjusted nutrition and fitness guidance.",
   url: 'https://genexcel.ai',
   ogImage: 'https://genexcel.ai/og-image.jpg',
   links: {
@@ -13,15 +13,23 @@ export const siteConfig = {
 
 export const navItems = [
   {
+    title: 'Platform',
+    href: '/platform',
+    children: [
+      { title: 'Platform Overview', href: '/platform', description: 'Genetics, Helix and every system in one place' },
+      { title: 'How It Works', href: '/how-it-works', description: 'From saliva sample to a tutor that teaches differently' },
+      { title: 'The Science', href: '/science', description: 'How the genetic report is built and read' },
+    ],
+  },
+  {
     title: 'Solutions',
     href: '/solutions',
     children: [
-      { title: 'For Families', href: '/solutions/families', description: 'Comprehensive health tracking for your children' },
-      { title: 'For Schools', href: '/solutions/schools', description: 'School health programs and kiosk integration' },
-      { title: 'For Healthcare', href: '/solutions/healthcare', description: 'Tools for pediatricians and specialists' },
+      { title: 'For Families', href: '/solutions/families', description: 'One household account for every child' },
+      { title: 'For Schools', href: '/solutions/schools', description: 'Health camps, teacher tools and School Genomics' },
+      { title: 'For Healthcare', href: '/solutions/healthcare', description: 'Genetic counsellors, labs and telehealth partners' },
     ],
   },
-  { title: 'Science', href: '/science' },
   { title: 'Pricing', href: '/pricing' },
   { title: 'Blog', href: '/blog' },
   { title: 'About', href: '/about' },
@@ -40,14 +48,17 @@ export const footerLinks = {
     { title: 'Careers', href: '/careers' },
     { title: 'Press', href: '/press' },
     { title: 'Contact', href: '/contact' },
+    { title: 'Support', href: '/help' },
   ],
   resources: [
+    { title: 'How It Works', href: '/how-it-works' },
+    { title: 'Platform Overview', href: '/platform' },
     { title: 'Blog', href: '/blog' },
     { title: 'FAQs', href: '/faqs' },
     { title: 'Help Center', href: '/help' },
-    { title: 'Webinars', href: '/#' },
   ],
   legal: [
+    { title: 'Trust & Privacy', href: '/trust' },
     { title: 'Privacy Policy', href: '/privacy' },
     { title: 'Terms of Service', href: '/terms' },
     { title: 'Cookie Policy', href: '/cookies' },
@@ -57,67 +68,67 @@ export const footerLinks = {
 };
 
 export const stats = [
-  { value: 10000, suffix: '+', label: 'Families Trust Us' },
-  { value: 450, suffix: '+', label: 'Genetic Traits' },
-  { value: 50, suffix: '+', label: 'Partner Schools' },
-  { value: 99, suffix: '%', label: 'Satisfaction Rate' },
+  { value: 1020, suffix: '+', label: 'Genetic Traits Catalogued' },
+  { value: 225000, suffix: '+', label: 'Textbook Passages for Helix' },
+  { value: 26, suffix: '', label: 'Genetic Trait Profiles' },
+  { value: 8, suffix: '', label: 'Playable Cognitive Games' },
 ];
 
 export const features = [
   {
     icon: 'Dna',
-    title: 'Genetic Insights',
-    description: 'Discover 450+ genetic traits across 34 health categories, from metabolism to cognitive abilities.',
+    title: 'Genetic Reports',
+    description: 'A report across diet, learning, fitness, personality and health, read from the lab PDF in about ten seconds and framed the same way your counsellor sees it.',
     color: 'from-blue-500 to-cyan-500',
-    href: '/solutions/families#genetics',
+    href: '/platform#genetics',
   },
   {
-    icon: 'Brain',
-    title: 'Brain Games',
-    description: '10 scientifically designed cognitive games that adapt to your child\'s age and abilities.',
+    icon: 'Bot',
+    title: 'Helix, the AI Tutor',
+    description: "Answers homework from your child's own textbook, in their own language, and never mentions genetics while it teaches.",
     color: 'from-purple-500 to-pink-500',
-    href: '/solutions/families#games',
+    href: '/platform#helix',
   },
   {
     icon: 'Camera',
     title: 'AI NutriScan',
-    description: 'Snap a photo of any meal for instant, personalized nutritional analysis powered by AI.',
+    description: 'Snap a photo of any meal for instant nutrition analysis, with calorie and macro targets that carry genetic adjustments.',
     color: 'from-green-500 to-emerald-500',
-    href: '/solutions/families#nutrition',
+    href: '/platform#nutrition',
   },
   {
     icon: 'HeartPulse',
-    title: 'Health Tracking',
-    description: 'Track 13 vital health metrics with beautiful visualizations and trend analysis.',
+    title: 'Fitness & Habits',
+    description: 'Workout plans, live gym logging and step tracking that sync with Apple Health or Health Connect.',
     color: 'from-red-500 to-orange-500',
-    href: '/solutions/families#health',
+    href: '/platform#fitness',
   },
   {
-    icon: 'Video',
-    title: 'Telemedicine',
-    description: 'Connect with verified pediatricians and genetic counselors via secure video calls.',
+    icon: 'GraduationCap',
+    title: 'School Genomics',
+    description: 'A learning profile that shapes lesson plans for teachers and study plans for students, without ever showing a child a score or a label.',
     color: 'from-indigo-500 to-blue-500',
-    href: '/solutions/families#telemedicine',
+    href: '/solutions/schools',
   },
   {
     icon: 'Users',
     title: 'Family Dashboard',
-    description: 'Manage multiple children from one account with comprehensive family health insights.',
+    description: 'One household account for up to five children, with consent you grant and can withdraw at any time.',
     color: 'from-teal-500 to-cyan-500',
-    href: '/solutions/families#family',
+    href: '/solutions/families',
   },
 ];
 
 export const testimonials = [
   {
-    quote: "GenExcel helped us understand why our son struggled with focus in school. The genetic insights led us to the right dietary changes and learning strategies. He's thriving now!",
+    quote: "GenExcel helped us understand why our son struggled with focus in school. The genetic insights led us to the right dietary changes, and Helix explains his homework in a way that finally clicks. He's thriving now!",
     author: 'Priya M.',
     role: 'Parent of 9-year-old',
     location: 'Mumbai',
     avatar: '/images/testimonials/avatar-1.jpg',
   },
   {
-    quote: "As a pediatrician, I recommend GenExcel to families who want to take a proactive approach to their child's health. The insights are clinically relevant and beautifully presented.",
+    quote: "As a pediatrician, I recommend GenExcel to families who want to take a proactive approach to their child's health. The insights are clinically relevant, and the risk-related findings are framed carefully for parents rather than the child.",
     author: 'Dr. Rajesh K.',
     role: 'Pediatrician',
     location: 'Bangalore',
@@ -130,6 +141,13 @@ export const testimonials = [
     location: 'Delhi',
     avatar: '/images/testimonials/avatar-3.jpg',
   },
+  {
+    quote: "What sold me was that Helix answers from my son's actual textbook, not generic internet answers — and it never once mentioned his genetic report to him. That line between what I see as a parent and what he sees matters to us.",
+    author: 'Karthik R.',
+    role: 'Parent of 11-year-old',
+    location: 'Chennai',
+    avatar: '/images/testimonials/avatar-4.jpg',
+  },
 ];
 
 export const pricingPlans = [
@@ -137,13 +155,15 @@ export const pricingPlans = [
     name: 'Free',
     price: '0',
     period: 'forever',
-    description: 'Get started with basic health tracking',
+    description: 'The AI tutor and lifestyle tools, on us',
     features: [
-      'Health metrics tracking (13 metrics)',
-      '5 brain games per month',
-      'Basic nutrition logging',
+      'Helix AI tutor, chat and voice',
+      'Textbook-grounded homework help',
+      'Study plans, lesson learner and roadmaps',
+      'Diet plans, NutriScan and water tracking',
+      'Fitness plans and gym logging',
+      'Lifestyle tracking (My Traits unlocks on PRO)',
       '1 child profile',
-      'Community support',
     ],
     cta: 'Get Started Free',
     href: '/signup',
@@ -153,14 +173,13 @@ export const pricingPlans = [
     name: 'Premium',
     price: '2,999',
     period: 'per year',
-    description: 'Complete genetic insights for your child',
+    description: "Everything in Free, plus your child's genetic report",
     features: [
       'Everything in Free',
       'Genetic test kit included',
-      '450+ genetic traits analyzed',
-      'Unlimited brain games',
-      'AI-powered NutriScan',
-      'Personalized recommendations',
+      'Full My Traits report: diet, learning, fitness, personality and health',
+      'Genetic adjustments in nutrition and fitness plans',
+      'Genetic counsellor consultations',
       'Priority email support',
     ],
     cta: 'Order Genetic Test',
@@ -174,10 +193,10 @@ export const pricingPlans = [
     description: 'For families with multiple children',
     features: [
       'Everything in Premium',
-      'Up to 4 children',
+      'Up to 4 children on genetic reports',
       'Family health comparisons',
       'Combined genetic insights',
-      'Priority telemedicine booking',
+      'Priority consultation booking',
       'Dedicated family support',
     ],
     cta: 'Get Family Plan',

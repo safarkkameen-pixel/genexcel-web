@@ -3,8 +3,7 @@
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/Badge';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { TextReveal } from '@/components/ui/TextReveal';
-import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { PageHero, GradientText } from '@/components/ui/PageHero';
 import {
   Cookie,
   Globe,
@@ -21,49 +20,14 @@ import {
 
 
 export default function CookiePolicyPage() {
-  useSmoothScroll();
-
   return (
-    <main className="pt-20">
-      {/* Hero Section */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-white to-orange-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 -z-10" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-amber-200/30 dark:bg-amber-900/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-200/30 dark:bg-orange-900/20 rounded-full blur-3xl" />
-
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Badge variant="gradient" className="mb-6">
-                <Cookie className="h-3 w-3 mr-1" />
-                Transparency
-              </Badge>
-            </motion.div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-              <TextReveal>Cookie</TextReveal>
-              <br />
-              <span className="gradient-text">
-                <TextReveal delay={0.3}>Policy</TextReveal>
-              </span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed"
-            >
-              This policy explains how we use cookies and similar technologies on the GenExcel website and in relation to the GenExcel mobile application.
-            </motion.p>
-
-          </div>
-        </div>
-      </section>
+    <main>
+      <PageHero
+        icon={Cookie}
+        eyebrow="Transparency"
+        title={<>Cookie <GradientText>Policy</GradientText></>}
+        subtitle="This policy explains how we use cookies and similar technologies on the GenExcel website and in relation to the GenExcel mobile application."
+      />
 
       {/* Section 1: What Are Cookies */}
       <section className="section-padding bg-white dark:bg-slate-900">

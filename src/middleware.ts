@@ -1,5 +1,10 @@
-import { auth } from '@/lib/auth';
+import NextAuth from 'next-auth';
 import { NextResponse } from 'next/server';
+import { authConfig } from '@/lib/auth.config';
+
+// Built from the Edge-safe base config only (no Prisma/bcrypt) so this
+// actually runs on the Edge middleware runtime instead of silently no-op'ing.
+const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {
   const { pathname } = req.nextUrl;

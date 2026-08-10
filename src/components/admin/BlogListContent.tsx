@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { adminFetch, AdminSessionExpiredError } from '@/lib/adminFetch';
 import {
   PlusCircle,
   Search,
@@ -56,12 +57,14 @@ export function BlogListContent({
     if (!confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      const res = await fetch(`/api/admin/blog/${id}`, { method: 'DELETE' });
+      const res = await adminFetch(`/api/admin/blog/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Failed to delete');
       toast.success('Post deleted');
       router.refresh();
-    } catch {
-      toast.error('Failed to delete post');
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error('Failed to delete post');
+      }
     }
   };
 

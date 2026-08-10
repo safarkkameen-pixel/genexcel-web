@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
-import { Calendar, User, ArrowRight, Tag } from 'lucide-react';
+import { Calendar, User, ArrowRight, Tag, Newspaper } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { PageHero, GradientText } from '@/components/ui/PageHero';
 
 interface Post {
   id: string;
@@ -38,27 +39,12 @@ export function BlogListPage({
 }) {
   return (
     <main className="min-h-screen">
-      {/* Hero */}
-      <section className="relative py-24 bg-gradient-to-b from-slate-900 to-slate-800">
-        <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block px-4 py-1.5 bg-primary-500/20 text-primary-400 text-sm font-medium rounded-full mb-4">
-              Blog
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Insights & Updates
-            </h1>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Expert articles on pediatric health, genetics, nutrition, and child
-              wellness.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        icon={Newspaper}
+        eyebrow="Blog"
+        title={<>Insights &amp; <GradientText>Updates</GradientText></>}
+        subtitle="Expert articles on pediatric health, genetics, nutrition, and child wellness."
+      />
 
       {/* Content */}
       <section className="py-16">
@@ -68,10 +54,10 @@ export function BlogListPage({
             <Link
               href="/blog"
               className={cn(
-                'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+                'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
                 !activeCategory
-                  ? 'bg-primary-500 text-white'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  ? 'bg-gradient-to-br from-primary-600 to-secondary-500 text-white dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.16] dark:to-white/[.06] dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border dark:border-white/20 dark:text-white'
+                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-[#C7D2E5] dark:hover:bg-transparent dark:hover:bg-gradient-to-br dark:hover:from-white/[.16] dark:hover:to-white/[.06] dark:hover:backdrop-blur-2xl dark:hover:backdrop-saturate-150 dark:hover:text-white'
               )}
             >
               All
@@ -81,10 +67,10 @@ export function BlogListPage({
                 key={cat.id}
                 href={`/blog?category=${cat.slug}`}
                 className={cn(
-                  'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+                  'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
                   activeCategory === cat.slug
-                    ? 'bg-primary-500 text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    ? 'bg-gradient-to-br from-primary-600 to-secondary-500 text-white dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.16] dark:to-white/[.06] dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border dark:border-white/20 dark:text-white'
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-[#C7D2E5] dark:hover:bg-transparent dark:hover:bg-gradient-to-br dark:hover:from-white/[.16] dark:hover:to-white/[.06] dark:hover:backdrop-blur-2xl dark:hover:backdrop-saturate-150 dark:hover:text-white'
                 )}
               >
                 {cat.name}
@@ -108,10 +94,15 @@ export function BlogListPage({
                 >
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="group block bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all"
+                    className={cn(
+                      'group block rounded-3xl overflow-hidden transition-all duration-300 ease-out',
+                      'bg-white border border-slate-200 shadow-glass',
+                      'dark:bg-transparent dark:bg-gradient-to-br dark:from-white/10 dark:to-white/[.03] dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border-white/[.15] dark:shadow-none',
+                      'hover:-translate-y-1 hover:border-slate-300 dark:hover:border-white/[.34]'
+                    )}
                   >
                     {/* Image */}
-                    <div className="aspect-video bg-gradient-to-br from-primary-500/20 to-accent-500/20 relative overflow-hidden">
+                    <div className="aspect-video bg-gradient-to-br from-cyan-500/20 to-blue-500/20 relative overflow-hidden">
                       {post.featuredImage ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -121,11 +112,11 @@ export function BlogListPage({
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
-                          <Tag className="w-12 h-12 text-primary-500/30" />
+                          <Tag className="w-12 h-12 text-cyan-500/30" />
                         </div>
                       )}
                       {post.category && (
-                        <span className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-slate-900/90 text-xs font-medium rounded-full text-primary-600 dark:text-primary-400">
+                        <span className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-slate-900/80 dark:backdrop-blur-md text-xs font-medium rounded-full text-cyan-700 dark:text-cyan-300">
                           {post.category.name}
                         </span>
                       )}
@@ -133,7 +124,7 @@ export function BlogListPage({
 
                     {/* Content */}
                     <div className="p-6">
-                      <h2 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-primary-500 transition-colors line-clamp-2 mb-2">
+                      <h2 className="font-display font-light text-lg text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2 mb-2">
                         {post.title}
                       </h2>
                       {post.excerpt && (
@@ -157,7 +148,7 @@ export function BlogListPage({
                             </span>
                           )}
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" />
+                        <ArrowRight className="w-4 h-4 text-slate-300 dark:text-slate-500 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" />
                       </div>
                     </div>
                   </Link>
@@ -177,10 +168,10 @@ export function BlogListPage({
                       activeCategory ? `&category=${activeCategory}` : ''
                     }`}
                     className={cn(
-                      'w-10 h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-colors',
+                      'w-10 h-10 flex items-center justify-center rounded-full text-sm font-medium transition-all duration-200',
                       page === currentPage
-                        ? 'bg-primary-500 text-white'
-                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+                        ? 'bg-gradient-to-br from-primary-600 to-secondary-500 text-white dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.16] dark:to-white/[.06] dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border dark:border-white/20 dark:text-white'
+                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-[#C7D2E5] dark:hover:bg-transparent dark:hover:bg-gradient-to-br dark:hover:from-white/[.16] dark:hover:to-white/[.06] dark:hover:backdrop-blur-2xl dark:hover:backdrop-saturate-150 dark:hover:text-white'
                     )}
                   >
                     {page}

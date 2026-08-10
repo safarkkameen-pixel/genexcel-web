@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { PlusCircle, Edit, Trash2, X, Check } from 'lucide-react';
+import { adminFetch, AdminSessionExpiredError } from '@/lib/adminFetch';
 
 interface Category {
   id: string;
@@ -29,7 +30,7 @@ export function CategoryManager({
   const handleCreate = async () => {
     if (!newName.trim()) return;
     try {
-      const res = await fetch('/api/admin/categories', {
+      const res = await adminFetch('/api/admin/categories', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: newName, description: newDescription }),
@@ -44,14 +45,16 @@ export function CategoryManager({
       setIsAdding(false);
       router.refresh();
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Failed to create');
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error(err instanceof Error ? err.message : 'Failed to create');
+      }
     }
   };
 
   const handleUpdate = async (id: string) => {
     if (!editName.trim()) return;
     try {
-      const res = await fetch(`/api/admin/categories/${id}`, {
+      const res = await adminFetch(`/api/admin/categories/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: editName }),
@@ -60,8 +63,10 @@ export function CategoryManager({
       toast.success('Category updated');
       setEditingId(null);
       router.refresh();
-    } catch {
-      toast.error('Failed to update category');
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error('Failed to update category');
+      }
     }
   };
 
@@ -69,14 +74,16 @@ export function CategoryManager({
     if (!confirm('Delete this category? Posts in this category will become uncategorized.'))
       return;
     try {
-      const res = await fetch(`/api/admin/categories/${id}`, {
+      const res = await adminFetch(`/api/admin/categories/${id}`, {
         method: 'DELETE',
       });
       if (!res.ok) throw new Error('Failed to delete');
       toast.success('Category deleted');
       router.refresh();
-    } catch {
-      toast.error('Failed to delete category');
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error('Failed to delete category');
+      }
     }
   };
 

@@ -12,6 +12,7 @@ import {
   Loader2,
   X,
 } from 'lucide-react';
+import { adminFetch, AdminSessionExpiredError } from '@/lib/adminFetch';
 
 interface MediaItem {
   id: string;
@@ -35,10 +36,15 @@ export default function MediaPage() {
   const [adding, setAdding] = useState(false);
 
   const fetchMedia = async () => {
-    const res = await fetch('/api/admin/media');
-    const data = await res.json();
-    setMedia(data.media);
-    setLoading(false);
+    try {
+      const res = await adminFetch('/api/admin/media');
+      const data = await res.json();
+      setMedia(data.media);
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) throw err;
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -49,7 +55,7 @@ export default function MediaPage() {
     if (!newUrl.trim()) return;
     setAdding(true);
     try {
-      const res = await fetch('/api/admin/media', {
+      const res = await adminFetch('/api/admin/media', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -65,8 +71,10 @@ export default function MediaPage() {
       setNewAltText('');
       setShowAdd(false);
       fetchMedia();
-    } catch {
-      toast.error('Failed to add media');
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error('Failed to add media');
+      }
     } finally {
       setAdding(false);
     }
@@ -75,11 +83,13 @@ export default function MediaPage() {
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this media?')) return;
     try {
-      await fetch(`/api/admin/media/${id}`, { method: 'DELETE' });
+      await adminFetch(`/api/admin/media/${id}`, { method: 'DELETE' });
       toast.success('Media deleted');
       setMedia(media.filter((m) => m.id !== id));
-    } catch {
-      toast.error('Failed to delete');
+    } catch (err) {
+      if (!(err instanceof AdminSessionExpiredError)) {
+        toast.error('Failed to delete');
+      }
     }
   };
 
