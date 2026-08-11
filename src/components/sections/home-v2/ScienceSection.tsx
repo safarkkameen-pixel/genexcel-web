@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { GlassCard } from '@/components/ui/GlassCard';
 
 const SCIENCE = [
   { num: '01', title: 'Order Your Kit', text: 'A collection kit ships to your door, or is collected at a school health camp. Simple, painless saliva collection.' },
@@ -17,10 +18,7 @@ export function ScienceSection() {
   return (
     <section id="science" className="relative z-[1]">
       <div className="max-w-[1440px] mx-auto px-6 pb-24">
-        <div
-          ref={ref}
-          className="rounded-[36px] py-14 px-7 sm:px-12 bg-white border border-slate-200 shadow-glass-lg dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.13] dark:to-white/[.05] dark:backdrop-blur-3xl dark:backdrop-saturate-150 dark:border-white/20 dark:shadow-none"
-        >
+        <GlassCard ref={ref} className="rounded-[36px] py-14 px-7 sm:px-12" hover={false}>
           <h2
             className="font-display font-light text-slate-900 dark:text-white tracking-[-0.035em] leading-[1.06] max-w-[760px] mb-6"
             style={{ fontSize: 'clamp(30px,4.4vw,56px)' }}
@@ -58,7 +56,7 @@ export function ScienceSection() {
               </motion.div>
             ))}
           </div>
-        </div>
+        </GlassCard>
       </div>
     </section>
   );

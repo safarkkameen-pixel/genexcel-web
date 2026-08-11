@@ -35,8 +35,8 @@ const contactInfo = [
     icon: Mail,
     title: 'Email Us',
     description: 'Our team will respond within 24 hours',
-    value: 'info@genexcel.ai',
-    href: 'mailto:info@genexcel.ai',
+    value: 'info@curanova.ai',
+    href: 'mailto:info@curanova.ai',
   },
   {
     icon: Phone,

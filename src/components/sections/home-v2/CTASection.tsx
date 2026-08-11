@@ -3,18 +3,19 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { GlassCard } from '@/components/ui/GlassCard';
 
 export function CTASection() {
   return (
     <section id="cta" className="relative z-[1]">
-      <div className="max-w-[1440px] mx-auto px-6 pb-24">
+      <div className="max-w-[1440px] mx-auto px-6 py-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-[40px] py-20 px-8 sm:px-14 bg-white border border-slate-200 shadow-glass-lg dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.14] dark:to-white/[.05] dark:backdrop-blur-3xl dark:backdrop-saturate-150 dark:border-white/20 dark:shadow-none"
         >
+        <GlassCard className="relative overflow-hidden rounded-[40px] py-20 px-8 sm:px-14" hover={false}>
           <div
             aria-hidden="true"
             className="absolute -right-[8%] -top-[40%] w-[520px] h-[520px] rounded-full animate-gx-drift pointer-events-none"
@@ -46,6 +47,7 @@ export function CTASection() {
               </Link>
             </div>
           </div>
+        </GlassCard>
         </motion.div>
       </div>
     </section>

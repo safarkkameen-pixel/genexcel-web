@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import { testimonials } from '@/config/site';
+import { GlassCard } from '@/components/ui/GlassCard';
 
 function initialsOf(name: string) {
   return name
@@ -39,10 +40,7 @@ export function ReviewsSection() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-[18px]"
         >
           {testimonials.map((t) => (
-            <div
-              key={t.author}
-              className="rounded-[26px] p-8 bg-white border border-slate-200 shadow-glass transition-transform duration-500 hover:-translate-y-1 dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.11] dark:to-white/[.04] dark:backdrop-blur-2xl dark:backdrop-saturate-150 dark:border-white/[.16] dark:shadow-none"
-            >
+            <GlassCard key={t.author} className="p-8">
               <Quote className="h-5 w-5 text-cyan-600 dark:text-[#22D3EE]" />
               <p className="text-[15px] leading-[1.7] text-slate-900 dark:text-white my-4 mb-6">{t.quote}</p>
               <div className="flex items-center gap-3 pt-[18px] border-t border-slate-200 dark:border-white/[.14]">
@@ -56,7 +54,7 @@ export function ReviewsSection() {
                   </span>
                 </span>
               </div>
-            </div>
+            </GlassCard>
           ))}
         </motion.div>
       </div>
