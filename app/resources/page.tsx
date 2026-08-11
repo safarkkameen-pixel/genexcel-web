@@ -14,10 +14,10 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const resources = [
-  { title: "Blog & guides", href: "/resources/blog", body: "Explainers on genomics, learning and wellness." },
-  { title: "FAQ", href: "/resources/faq", body: "Genetic-data safety, accuracy, devices, pricing and sampling." },
+  { title: "Blog & guides", href: "/blog", body: "Explainers on genomics, learning and wellness." },
+  { title: "FAQs", href: "/faqs", body: "Genetic-data safety, accuracy, devices, pricing and sampling." },
   { title: "Glossary", href: "/resources/glossary", body: "Every GenExcel term, defined plainly." },
-  { title: "Help centre", href: "/resources/help", body: "Onboarding, account, consent and troubleshooting." },
+  { title: "Help Center", href: "/help", body: "Onboarding, account, consent and troubleshooting." },
 ];
 
 export default function ResourcesPage() {

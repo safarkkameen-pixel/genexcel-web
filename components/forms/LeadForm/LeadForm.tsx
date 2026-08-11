@@ -47,7 +47,7 @@ export function LeadForm({
         )}
       </div>
 
-      <Button type="submit" variant="accent" size="md" disabled={pending}>
+      <Button type="submit" size="md" disabled={pending}>
         {pending ? "Sending…" : submitLabel}
       </Button>
     </form>

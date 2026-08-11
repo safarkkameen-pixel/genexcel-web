@@ -22,7 +22,7 @@ export default function NotFound() {
         <Text tone="muted" as="p">
           The page you were looking for may have moved, or the link may be out of date.
         </Text>
-        <Button href="/" variant="accent" size="md">
+        <Button href="/" size="md">
           Back to the homepage
         </Button>
       </div>

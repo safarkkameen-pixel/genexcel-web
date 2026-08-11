@@ -107,8 +107,7 @@
   min-width: 240px;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(28, 28, 28, 0.08);
+  border-radius: var(--radius-md);
   padding: var(--space-1);
   animation: menuIn var(--duration-fast) var(--ease-out);
 }
@@ -144,7 +143,7 @@
   flex-shrink: 0;
 }
 
-.loginLink {
+.contactLink {
   display: none;
   align-items: center;
   font-size: 0.875rem;
@@ -158,6 +157,14 @@
   &:hover {
     color: var(--color-text);
   }
+
+  @media (min-width: 900px) {
+    display: inline-flex;
+  }
+}
+
+.getStartedButton {
+  display: none;
 
   @media (min-width: 900px) {
     display: inline-flex;
@@ -196,7 +203,6 @@
   right: 0;
   background: var(--color-bg-card);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 16px 32px rgba(28, 28, 28, 0.1);
   padding: var(--space-2) var(--space-6) var(--space-4);
   z-index: 99;
   animation: menuIn var(--duration-fast) var(--ease-out);
@@ -210,6 +216,18 @@
   @media (min-width: 900px) {
     display: none;
   }
+}
+
+.mobileMenuFooter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+}
+
+.mobileMenuButton {
+  width: 100%;
+  justify-content: center;
 }
 
 .mobileMenuList {

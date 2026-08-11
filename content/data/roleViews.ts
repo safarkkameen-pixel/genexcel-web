@@ -4,30 +4,34 @@ export type RoleView = {
   detail: string;
 };
 
-/** "What each person sees" — Guide §3.2 Stage 6, §7.3, §7.5. */
+/** "One Report, Four Views" — How It Works content inventory. */
 export const roleViews: RoleView[] = [
   {
     role: "Child",
-    summary: "A friendly, positively framed profile — with risk traits withheld.",
+    summary:
+      "A friendly profile across diet, learning, fitness and personality, with genes and plain-language advice.",
     detail:
-      "The child opens My Traits and finds their genetic profile organised into categories: diet and nutrition, academic and cognitive, fitness and sport, personality and talents, and health-related traits. Each trait shows a plain-language result, the genes behind it, and what to do about it. Risk-related traits, addiction-susceptibility results and mental-health-related traits are deliberately withheld from the child's own view.",
+      "A friendly profile across diet, learning, fitness and personality, with genes and plain-language advice. Risk-related traits and any psychometric score are deliberately withheld — and the tutor never says genetics changed how it teaches.",
   },
   {
     role: "Parent",
-    summary: "The household picture: health, progress, consents, and their own report.",
+    summary:
+      "The household picture: each child's health, progress and consents, plus their own report if they have one.",
     detail:
-      "The parent sees the household picture: children's health snapshots, progress, consents, and their own genetic report if they have one. Guardian access to a child's genetic report specifically is a deliberately deferred product and consent decision — see the Trust & Privacy page.",
+      "The household picture: each child's health, progress and consents, plus their own report if they have one. Consent can be granted or withdrawn for any category, at any time.",
   },
   {
     role: "Teacher",
-    summary: "A curated, one-to-ten learning profile — never raw genetic readings.",
+    summary:
+      "A curated learning profile — cognitive ability, memory, attention, motivation, reading, maths, verbal ability, creativity and stress resilience on a simple one-to-ten scale.",
     detail:
-      "The teacher sees a curated learning profile — cognitive ability, memory, attention, motivation, reading, mathematics, verbal ability, creativity and stress resilience on a simple one-to-ten scale — never raw genetic readings.",
+      "A curated learning profile — cognitive ability, memory, attention, motivation, reading, maths, verbal ability, creativity and stress resilience on a simple one-to-ten scale. Never raw genetic readings.",
   },
   {
     role: "Counsellor",
-    summary: "The complete clinical picture, correctly framed for risk.",
+    summary:
+      "The complete clinical picture for everyone in their caseload, correctly framed for risk, with consultations and messaging.",
     detail:
-      "The genetic counsellor sees the complete picture for the students in their caseload, with proper risk framing, filters and search, and can hold consultations and message the family.",
+      "The complete clinical picture for everyone in their caseload, correctly framed for risk, with consultations and messaging — and access that ends the instant a user leaves their caseload.",
   },
 ];

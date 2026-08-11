@@ -1,24 +1,34 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Hero } from "@/components/marketing/Hero/Hero";
 import { Section } from "@/components/ui/Section";
 import { SectionIntro } from "@/components/ui/SectionIntro";
+import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
+import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { Stepper } from "@/components/react-bits/Stepper/Stepper";
 import { ScrollReveal } from "@/components/react-bits/ScrollReveal/ScrollReveal";
 import { CategoryAccordion } from "@/components/content/CategoryAccordion";
 import { DifferentiatorGrid } from "@/components/marketing/DifferentiatorGrid/DifferentiatorGrid";
 import { CTABand } from "@/components/marketing/CTABand/CTABand";
 import { JsonLd } from "@/components/content/JsonLd";
-import { traitCategories, reportReaders } from "@/content/data/science";
-import { homeFinalCta } from "@/content/data/cta";
+import {
+  traitCategories,
+  scienceStats,
+  scienceProcessSteps,
+  reportValidationChecks,
+  reportValidationFootnote,
+  verifyChecklist,
+  verifyCommitment,
+} from "@/content/data/science";
+import { scienceCta } from "@/content/data/cta";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Genetic Reports & The Science",
+  title: "The Science",
   description:
-    "What a GenExcel genetic report actually contains: 113 to 117 traits per person from a catalogue of ~1,020, across five categories — and the one rule the platform never breaks: a high result is not always a bad thing.",
+    "A real genetic trait catalogue of 1,020+ traits across five categories, a report-reading pipeline that checks its own work four ways, and honest reporting about what genetics can and can't tell us.",
   path: "/science",
 });
 
@@ -28,14 +38,14 @@ export default function SciencePage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Genetic Reports & Science", path: "/science" },
+          { name: "The Science", path: "/science" },
         ])}
       />
 
       <Hero
-        eyebrow="Genetic Reports & The Science"
-        heading="113 to 117 traits, read automatically, framed carefully"
-        subhead="A single individual's report is drawn from a master catalogue of around 1,020 traits, organised into 26 profiles across five categories — every trait carrying a result, the genes behind it, and what to do about it."
+        eyebrow="The Science"
+        heading="Cutting-Edge Genomics Meets AI Innovation"
+        subhead="Our platform is built on a real genetic trait catalogue, a report-reading pipeline that checks its own work, and honest reporting about what genetics can and can't tell us."
         ambient
         actions={
           <>
@@ -49,65 +59,110 @@ export default function SciencePage() {
         }
       />
 
-      <Section>
-        <SectionIntro eyebrow="Five categories" heading="What a report actually contains" />
-        <CategoryAccordion categories={traitCategories} />
-      </Section>
-
-      <Section background="inverse">
-        <div className={styles.ruleCallout}>
-          <SectionIntro
-            eyebrow="The one rule that matters most"
-            heading="A “high” result is not always a bad thing"
-            tone="inverse"
-            align="center"
-          />
-          <Text size="lg" tone="inverse-muted" className={styles.ruleBody}>
-            Only for health risks, addiction susceptibility and injury risk does a high band genuinely mean
-            elevated risk — shown in red, amber and green. Everywhere else, a high creativity result, a high
-            verbal ability, a high personality dimension are simply levels, shown in neutral styling, never
-            as risks. The platform enforces this distinction consistently across the child&apos;s, parent&apos;s,
-            counsellor&apos;s and administrator&apos;s views.
-          </Text>
-        </div>
+      <Section spacing="md">
+        <ScrollReveal>
+          <div className={styles.statsGrid}>
+            {scienceStats.map((stat) => (
+              <div key={stat.id} className={styles.stat}>
+                <span className={styles.statValue}>{stat.value}</span>
+                <span className={styles.statLabel}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </Section>
 
       <Section background="alt">
         <SectionIntro
-          eyebrow="How reports are read"
-          heading="Two readers, depending on the report layout"
-          subhead="Both check their own work before anything reaches a family."
+          eyebrow="Genetic Analysis"
+          heading="5 Trait Categories, 1,020+ Genetic Traits"
+          subhead="Our master catalogue organises traits into 26 profiles across five categories. Each family's report typically covers 113-117 of these traits."
         />
-        <div className={styles.readersVisual}>
-          <Image
-            src="/science-reader-comparison.png"
-            alt="Side-by-side comparison of exact reading and AI-assisted reading, each shown as a document being scanned"
-            width={1536}
-            height={1024}
-            sizes="(min-width: 900px) 900px, 100vw"
-            className={styles.readersVisualImage}
-          />
-        </div>
-        <div className={styles.readers}>
-          {reportReaders.map((reader) => (
-            <div key={reader.name} className={styles.reader}>
-              <h3 className={styles.readerName}>{reader.name}</h3>
-              <p className={styles.readerSpeed}>{reader.speed}</p>
-              <p className={styles.readerDetail}>{reader.detail}</p>
-            </div>
-          ))}
-        </div>
+        <CategoryAccordion categories={traitCategories} />
+      </Section>
+
+      <Section id="our-process">
+        <SectionIntro
+          eyebrow="Our Process"
+          heading="From Lab Report to Insights"
+          subhead="GenExcel doesn't run the lab test — we read the report it produces, automatically and self-verified, before a human ever reviews it."
+          align="center"
+        />
+        <Stepper items={scienceProcessSteps} />
+      </Section>
+
+      <Section background="alt">
+        <SectionIntro
+          eyebrow="Report Validation"
+          heading="Every Report Passes Four Checks"
+          subhead="Before a report reaches a family, it's checked against the lab document itself — automatically, every single time."
+          align="center"
+        />
+        <ScrollReveal>
+          <div className={styles.validationGrid}>
+            {reportValidationChecks.map((check) => (
+              <div key={check.id} className={styles.validationCard}>
+                <h3 className={styles.validationTitle}>{check.title}</h3>
+                <p className={styles.validationTag}>{check.tag}</p>
+                <p className={styles.validationDescription}>{check.description}</p>
+                <p className={styles.validationFootnote}>{reportValidationFootnote}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </Section>
 
       <Section>
-        <SectionIntro eyebrow="Why this matters" heading="The differentiators this makes possible" />
+        <div className={styles.verifyGrid}>
+          <div className={styles.verifyMain}>
+            <Badge tone="cyan">How We Verify</Badge>
+            <Heading as="h2" size="display-lg" className={styles.verifyHeading}>
+              Confirmed Against the Real Product
+            </Heading>
+            <Text size="lg" tone="muted" className={styles.verifyBody}>
+              Our report-reading pipeline was checked against the working product itself, not an early
+              plan or a demo. Here&apos;s what it actually does today.
+            </Text>
+            <ul className={styles.verifyChecklist}>
+              {verifyChecklist.map((item) => (
+                <li key={item}>
+                  <span className={styles.check} aria-hidden="true">
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Button href="#our-process" variant="ghost" size="lg">
+              See Our Full Process
+            </Button>
+          </div>
+          <div className={styles.commitmentCard}>
+            <h3 className={styles.commitmentTitle}>{verifyCommitment.title}</h3>
+            <p className={styles.commitmentBody}>{verifyCommitment.body}</p>
+            <ul className={styles.commitmentChecklist}>
+              {verifyCommitment.checklist.map((item) => (
+                <li key={item}>
+                  <span className={styles.check} aria-hidden="true">
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      <Section background="alt">
+        <SectionIntro eyebrow="Why this matters" heading="The differentiators this makes possible" align="center" />
         <ScrollReveal>
           <DifferentiatorGrid usedOn="science" />
         </ScrollReveal>
       </Section>
 
       <Section background="inverse" spacing="lg">
-        <CTABand data={homeFinalCta} />
+        <CTABand data={scienceCta} />
       </Section>
     </>
   );

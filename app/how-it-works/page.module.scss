@@ -1,29 +1,60 @@
-.journeys {
+.modesGrid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: var(--space-6);
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.journey {
-  padding: var(--space-6);
-  border-radius: var(--radius-md);
+.modeCard {
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
 }
 
-.journeyTitle {
+.modeTitle {
   font-family: var(--font-display);
-  font-size: 1.0625rem;
+  font-size: 1.25rem;
   font-weight: 350;
-  margin: 0 0 var(--space-3);
+  color: var(--color-heading);
+  margin: 0 0 var(--space-2);
 }
 
-.journeyBody {
+.modeSubtitle {
+  color: var(--color-text-faint);
+  font-size: 0.875rem;
+  margin: 0 0 var(--space-4);
+}
+
+.modeBody {
   color: var(--color-text-muted);
   line-height: 1.6;
+  margin: 0 0 var(--space-6);
+}
+
+.modeChecklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
   margin: 0;
-  font-size: 0.9375rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+}
+
+.check {
+  color: var(--color-accent);
+  font-weight: 350;
+  flex-shrink: 0;
+  margin-top: 1px;
 }

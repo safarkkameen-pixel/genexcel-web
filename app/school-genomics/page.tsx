@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/content/JsonLd";
 import { journeyStages } from "@/content/data/journeyStages";
 import { schoolGenomicsFeatures, schoolGenomicsGames } from "@/content/data/schoolGenomics";
 import { roleViews } from "@/content/data/roleViews";
-import { schoolCta } from "@/content/data/cta";
+import { schoolsCta as schoolCta } from "@/content/data/cta";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -39,7 +39,7 @@ export default function SchoolGenomicsPage() {
         ambient
         actions={
           <>
-            <Button href="/get-the-app" variant="accent" size="lg">
+            <Button href="/get-the-app" size="lg">
               Get the app
             </Button>
             <Button href="/how-it-works" variant="secondary" size="lg">
@@ -53,7 +53,7 @@ export default function SchoolGenomicsPage() {
         <SectionIntro
           eyebrow="The journey"
           heading="From a saliva sample to personalised teaching"
-          subhead="Onboarding, the learning-style assessment, sample collection, report reading, review and assignment, then eight stages later — the tutor is quietly different for this child."
+          subhead="Onboarding, the learning-style assessment, sample collection, report reading, review and assignment — six stages later, the tutor is quietly different for this child."
         />
         <Stepper items={journeyStages} />
       </Section>

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { SectionIntro } from "@/components/ui/SectionIntro";
 import styles from "./Features.module.scss";
 
 type FeatureItem = {
@@ -18,7 +17,7 @@ type FeatureItem = {
  */
 const features: FeatureItem[] = [
   {
-    title: "Genetic reports",
+    title: "26 profiles — Genetic reports",
     text: "Diet, learning, fitness, personality and health — read from the lab PDF in about ten seconds, checked four ways.",
     href: "/science",
     icon: (
@@ -32,7 +31,7 @@ const features: FeatureItem[] = [
     ),
   },
   {
-    title: "Helix, the AI tutor",
+    title: "225K+ passages — Helix, the AI tutor",
     text: "Answers homework from your child's own textbook — and never mentions genetics while it teaches.",
     href: "/helix",
     icon: (
@@ -43,7 +42,7 @@ const features: FeatureItem[] = [
     ),
   },
   {
-    title: "Nutrition & fitness",
+    title: "Genetics-adjusted — Nutrition & fitness",
     text: "Genetics-adjusted meal and workout plans, synced with Apple Health or Health Connect.",
     href: "/health-wellness",
     icon: (
@@ -58,11 +57,6 @@ const features: FeatureItem[] = [
 export function Features() {
   return (
     <>
-      <SectionIntro
-        eyebrow="The platform"
-        heading="Three systems, built from the genome out."
-        subhead="One saliva sample feeds three product areas — genetic reports, an AI tutor grounded in your child's own textbooks, and genetics-adjusted nutrition and fitness."
-      />
       <ul className={styles.list}>
         {features.map((feature) => (
           <li key={feature.href}>

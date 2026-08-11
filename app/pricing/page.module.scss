@@ -1,9 +1,24 @@
-.note {
-  margin-top: var(--space-6);
-  max-width: 75ch;
+.trustRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
 }
 
 .faq {
   max-width: 760px;
   margin-inline: auto;
+}
+
+.stillHaveQuestions {
+  text-align: center;
+  margin-top: var(--space-8);
+
+  a {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
 }

@@ -35,7 +35,7 @@ export default function HealthWellnessPage() {
         ambient
         actions={
           <>
-            <Button href="/get-the-app" variant="accent" size="lg">
+            <Button href="/get-the-app" size="lg">
               Get the app
             </Button>
             <Button href="/science" variant="secondary" size="lg">

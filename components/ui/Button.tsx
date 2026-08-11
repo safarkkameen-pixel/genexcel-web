@@ -17,6 +17,7 @@ type CommonProps = {
 type ButtonAsLink = CommonProps & {
   href: string;
   external?: boolean;
+  onClick?: () => void;
 };
 
 type NativeButtonProps = Pick<
@@ -38,16 +39,16 @@ export function Button(props: ButtonProps) {
     .join(" ");
 
   if (props.href) {
-    const { href, external } = props;
+    const { href, external, onClick } = props;
     if (external) {
       return (
-        <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+        <a href={href} className={classes} target="_blank" rel="noopener noreferrer" onClick={onClick}>
           {children}
         </a>
       );
     }
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
       </Link>
     );

@@ -12,6 +12,8 @@ export type BentoItem = {
   iconSrc?: string;
   /** Occupy two columns on wide layouts — set on a handful of items for visual rhythm. */
   wide?: boolean;
+  /** Small uppercase kicker label above the title, e.g. "26 PROFILES". */
+  tag?: string;
 };
 
 type MagicBentoProps = {
@@ -38,6 +40,7 @@ export function MagicBento({ items, className }: MagicBentoProps) {
           ) : item.icon ? (
             <div className={styles.icon}>{item.icon}</div>
           ) : null}
+          {item.tag && <span className={styles.tag}>{item.tag}</span>}
           <h3 className={styles.title}>{item.title}</h3>
           <p className={styles.body}>{item.body}</p>
         </SpotlightCard>

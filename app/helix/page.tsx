@@ -37,7 +37,7 @@ export default function HelixPage() {
         ambient
         actions={
           <>
-            <Button href="/get-the-app" variant="accent" size="lg">
+            <Button href="/get-the-app" size="lg">
               Try Helix in the app
             </Button>
             <Button href="/science" variant="secondary" size="lg">

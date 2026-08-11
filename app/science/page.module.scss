@@ -1,61 +1,152 @@
-.ruleCallout {
-  max-width: 720px;
-  margin-inline: auto;
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-}
-
-.ruleBody {
-  display: block;
-  margin-top: calc(-1 * var(--space-6));
-}
-
-.readersVisual {
-  max-width: 900px;
-  margin: 0 auto var(--space-8);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+  border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
 }
 
-.readersVisualImage {
-  display: block;
-  width: 100%;
-  height: auto;
+.statValue {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
 }
 
-.readers {
+.statLabel {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.validationGrid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: var(--space-6);
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
-.reader {
+.validationCard {
+  display: flex;
+  flex-direction: column;
   padding: var(--space-6);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   background: var(--color-bg-card);
 }
 
-.readerName {
+.validationTitle {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 350;
   margin: 0 0 var(--space-2);
 }
 
-.readerSpeed {
+.validationTag {
   color: var(--color-accent);
+  font-size: 0.8125rem;
   font-weight: 350;
-  font-size: 0.875rem;
   margin: 0 0 var(--space-3);
 }
 
-.readerDetail {
+.validationDescription {
   color: var(--color-text-muted);
   line-height: 1.6;
+  margin: 0 0 var(--space-4);
+  flex: 1;
+}
+
+.validationFootnote {
+  color: var(--color-text-faint);
+  font-size: 0.8125rem;
   margin: 0;
+}
+
+.verifyGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--space-10);
+  align-items: start;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.verifyHeading {
+  margin: var(--space-4) 0 var(--space-4);
+}
+
+.verifyBody {
+  margin-bottom: var(--space-6);
+}
+
+.verifyChecklist,
+.commitmentChecklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-8);
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+}
+
+.check {
+  color: var(--color-accent);
+  font-weight: 350;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.commitmentCard {
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+
+.commitmentTitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 350;
+  margin: 0 0 var(--space-4);
+}
+
+.commitmentBody {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 var(--space-6);
+}
+
+.commitmentChecklist {
+  margin-bottom: 0;
 }

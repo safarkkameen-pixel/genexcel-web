@@ -12,6 +12,7 @@ import Link from "next/link";
 import { primaryNav, utilityNav, mobileMenuItems } from "@/content/data/navigation";
 import { Logo } from "@/components/marketing/Logo/Logo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { Button } from "@/components/ui/Button";
 import styles from "./Header.module.scss";
 
 const DESKTOP_BREAKPOINT = 900;
@@ -139,10 +140,13 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Link href={utilityNav.login.href} className={styles.loginLink}>
-            {utilityNav.login.label}
+          <Link href={utilityNav.contact.href} className={styles.contactLink}>
+            {utilityNav.contact.label}
           </Link>
           <ThemeToggle />
+          <Button href={utilityNav.getStarted.href} size="sm" className={styles.getStartedButton}>
+            {utilityNav.getStarted.label}
+          </Button>
           <button
             type="button"
             className={styles.mobileToggle}
@@ -174,6 +178,25 @@ export function Header() {
               ))}
             </ul>
           </nav>
+          <div className={styles.mobileMenuFooter}>
+            <Button
+              href={utilityNav.getStarted.href}
+              size="md"
+              className={styles.mobileMenuButton}
+              onClick={() => setMobileOpen(false)}
+            >
+              {utilityNav.getStarted.label}
+            </Button>
+            <Button
+              href={utilityNav.contact.href}
+              variant="secondary"
+              size="md"
+              className={styles.mobileMenuButton}
+              onClick={() => setMobileOpen(false)}
+            >
+              {utilityNav.contact.label}
+            </Button>
+          </div>
         </div>
       )}
     </header>

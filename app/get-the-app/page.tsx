@@ -62,7 +62,7 @@ export default function GetTheAppPage() {
           </ul>
         </div>
 
-        <Button href="/demo" variant="accent" size="lg">
+        <Button href="/demo" size="lg">
           Request access
         </Button>
       </Section>

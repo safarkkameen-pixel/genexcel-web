@@ -10,14 +10,10 @@ export type PricingTier = {
 };
 
 /**
- * Homepage pricing-teaser tiers — confirmed real figures, provided
- * directly for this merge (see the "GenExcel Landing v3" reference).
- *
- * NOTE: this is a separate, marketing-facing presentation of pricing
- * from content/data/pricing.ts (the BASIC/PRO feature-comparison table
- * on the dedicated /pricing page, sourced verbatim from the Product
- * Guide §5.2). The two aren't reconciled — /pricing still shows
- * BASIC/PRO. Worth squaring away which is authoritative before launch.
+ * The single, authoritative pricing model — Free / Premium / Family —
+ * per the content inventory (Home §3.6, Pricing §12.2). The previous
+ * BASIC/PRO feature-comparison table (content/data/pricing.ts) has been
+ * retired from /pricing in favour of this model.
  */
 export const pricingTiers: PricingTier[] = [
   {
@@ -26,7 +22,7 @@ export const pricingTiers: PricingTier[] = [
     period: "forever",
     description: "The AI tutor and lifestyle tools, on us",
     popular: false,
-    cta: "Get started free",
+    cta: "Get Started Free",
     href: "/get-the-app",
     features: [
       "Helix AI tutor, chat and voice",
@@ -34,6 +30,7 @@ export const pricingTiers: PricingTier[] = [
       "Study plans, lesson learner and roadmaps",
       "Diet plans, NutriScan and water tracking",
       "Fitness plans and gym logging",
+      "Lifestyle tracking (My Traits unlocks on PRO)",
       "1 child profile",
     ],
   },
@@ -43,13 +40,13 @@ export const pricingTiers: PricingTier[] = [
     period: "per year",
     description: "Everything in Free, plus your child's genetic report",
     popular: true,
-    cta: "Order genetic test",
+    cta: "Order Genetic Test",
     href: "/demo",
     features: [
       "Everything in Free",
       "Genetic test kit included",
-      "Full My Traits report across five domains",
-      "Genetic adjustments in nutrition and fitness",
+      "Full My Traits report: diet, learning, fitness, personality and health",
+      "Genetic adjustments in nutrition and fitness plans",
       "Genetic counsellor consultations",
       "Priority email support",
     ],
@@ -60,7 +57,7 @@ export const pricingTiers: PricingTier[] = [
     period: "per year",
     description: "For families with multiple children",
     popular: false,
-    cta: "Get family plan",
+    cta: "Get Family Plan",
     href: "/demo",
     features: [
       "Everything in Premium",

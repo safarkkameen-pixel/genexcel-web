@@ -5,48 +5,38 @@ export type JourneyStage = {
   roleCallouts?: string[];
 };
 
-/** The 8-stage journey — Guide §3.2. */
+/** The 6-stage journey — How It Works content inventory. */
 export const journeyStages: JourneyStage[] = [
   {
     order: 1,
-    title: "Onboarding",
-    body: "A parent registers the household, adds each child as a profile with a simple PIN, and accepts required consents on the child's behalf. Older students can register themselves directly and complete a learning-style questionnaire.",
+    title: "Set up the household",
+    body: "A parent registers, adds each child with a name, date of birth and class, and accepts the required consents on their behalf. Older students can register themselves directly.",
   },
   {
     order: 2,
-    title: "The learning-style assessment",
-    body: "Before or shortly after entering the app, the student completes a psychometric assessment, by tapping or by speaking to Helix. The result is a four-domain learning profile — the child never sees a score or a label from it.",
+    title: "Collect the sample",
+    body: "A saliva sample is collected — at home, or at a school health camp, where each collection kit carries a code and nothing else about the child's identity.",
   },
   {
     order: 3,
-    title: "Sample collection",
-    body: "For school customers, samples are collected at a health camp. Each collection kit carries a code such as CA101 — that code, and nothing about the child's identity, is what travels with the sample.",
+    title: "GenExcel reads the report",
+    body: "The returned lab PDF is read automatically — every trait, gene reading and band — in about ten seconds, then checked four ways before anything uncertain goes to a human reviewer.",
   },
   {
     order: 4,
-    title: "Report reading",
-    body: "The laboratory returns a PDF, uploaded against the kit code. GenExcel reads it automatically — traits, gene readings, bands, charts, recommendations — and checks itself four ways before anything is trusted.",
-  },
-  {
-    order: 5,
-    title: "Review and assignment",
-    body: "Anything the reader was unsure about goes to a review queue. Assignment to a child is a deliberate, gated action: the report must be approved, the account must be on PRO, and consent is explicitly confirmed and recorded.",
+    title: "Review and assign, under consent",
+    body: "A staff member reviews anything the reader flagged, then assigns the report to the child's account — gated on confirmed consent, a PRO plan, and one report per person. It can be reversed at any time.",
     roleCallouts: ["Administrator", "Genetic counsellor"],
   },
   {
-    order: 6,
-    title: "What each person now sees",
-    body: "The child sees a curated, positively framed profile with risk traits withheld. The parent sees the household picture. The teacher sees a curated learning profile. The counsellor sees the complete clinical picture.",
+    order: 5,
+    title: "Everyone sees the right view",
+    body: "The child gets a friendly, curated profile. The parent sees what to act on. The teacher sees a learning profile — never raw genetics. The counsellor sees the full clinical picture.",
     roleCallouts: ["Child", "Parent", "Teacher", "Counsellor"],
   },
   {
-    order: 7,
-    title: "Personalised teaching begins",
-    body: "From this point the tutor is quietly different for this child — it knows their learning style, class, board, subjects and genetic learning disposition, and it is explicitly forbidden from naming any of it to the child.",
-  },
-  {
-    order: 8,
-    title: "The loop closes",
-    body: "Quiz results, teach-backs, study sessions, report cards, tasks, steps and meals all feed back in. Mastery estimates update, study plans re-pace, and the tutor's picture of the child sharpens over time.",
+    order: 6,
+    title: "Helix starts teaching differently",
+    body: "From here, the AI tutor adapts how it teaches, nutrition and fitness plans pick up genetic adjustments, and quizzes, meals and workouts keep feeding a sharper picture back in.",
   },
 ];

@@ -1,0 +1,102 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 480px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 350;
+    color: var(--color-heading);
+  }
+
+  input,
+  textarea,
+  select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border-strong);
+    font-size: 0.9375rem;
+    background: var(--color-bg-card);
+    color: var(--color-text);
+    resize: vertical;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 1px;
+    }
+  }
+
+  input,
+  select {
+    border-radius: var(--radius-sm);
+  }
+
+  textarea {
+    border-radius: var(--radius-md);
+  }
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+
+  input {
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+}
+
+.statusRegion {
+  min-height: 1.5em;
+}
+
+.error {
+  color: var(--color-error-500);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.submitButton {
+  align-self: flex-start;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  max-width: 480px;
+}
+
+.successTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 350;
+  color: var(--color-heading);
+  margin: 0 0 var(--space-2);
+}
+
+.successBody {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.successContact {
+  color: var(--color-text-muted);
+  margin-top: var(--space-3);
+
+  a {
+    color: var(--color-accent-hover);
+    font-weight: 500;
+  }
+}

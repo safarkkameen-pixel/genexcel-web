@@ -43,7 +43,7 @@ components/
 content/
   data/*.ts                 Every reusable piece of copy/data on the site — navigation, differentiators,
                              stats, pricing, personas, journeyStages, availability, testimonials, faq,
-                             cta, roleViews, products, science, roadmap, keyJourneys, help, legal.
+                             cta, roleViews, products, science, roadmap, help, legal.
   glossary.json             Transcribed from the Product Guide's glossary section.
   blog/*.mdx                Blog posts (empty today — see "Adding a blog post" below).
 

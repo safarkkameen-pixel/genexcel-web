@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/marketing/Hero/Hero";
 import { Section } from "@/components/ui/Section";
-import { SectionIntro } from "@/components/ui/SectionIntro";
+import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { Button } from "@/components/ui/Button";
+import { SpotlightCard } from "@/components/react-bits/SpotlightCard/SpotlightCard";
 import { JsonLd } from "@/components/content/JsonLd";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = buildMetadata({
   title: "Careers",
-  description: "Open roles and culture at CuraNovaAI, the team building GenExcel.",
+  description: "We're building the future of pediatric healthcare. Our careers page is coming soon.",
   path: "/careers",
 });
 
@@ -26,20 +27,25 @@ export default function CareersPage() {
 
       <Hero
         eyebrow="Careers"
-        heading="Help build a platform that treats children's data with real care"
-        subhead="We're a small team working on genomics, education and child safety at the same time — which means the engineering, product and design problems here are genuinely unusual."
+        heading="Join Our Mission"
+        subhead="We're building the future of pediatric healthcare. Our careers page is coming soon."
       />
 
-      <Section>
-        <SectionIntro eyebrow="Open roles" heading="Nothing formally posted yet" />
-        <Text tone="muted" className={styles.body}>
-          We don&apos;t have specific role listings published on this page today. If you&apos;re interested in
-          working on GenExcel — engineering, product, design, clinical or otherwise — reach out and tell us
-          what you&apos;d want to work on.
-        </Text>
-        <Button href="/contact" variant="accent" size="md">
-          Get in touch
-        </Button>
+      <Section spacing="lg">
+        <div className={styles.card}>
+          <SpotlightCard>
+            <Heading as="h2" size="display-md" align="center" className={styles.cardTitle}>
+              Coming Soon
+            </Heading>
+            <Text tone="muted" size="lg" className={styles.cardBody}>
+              We&apos;re preparing exciting opportunities to join our team. In the meantime, feel free to
+              reach out to us directly if you&apos;re passionate about transforming pediatric healthcare.
+            </Text>
+            <Button href="/contact" variant="primary" size="md">
+              Get in Touch
+            </Button>
+          </SpotlightCard>
+        </div>
       </Section>
     </>
   );
