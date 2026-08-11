@@ -79,7 +79,12 @@ function NavItem({
   }
 
   return (
-    <div ref={containerRef} className="relative">
+    <div
+      ref={containerRef}
+      className="relative"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <button
         type="button"
         aria-haspopup="menu"
@@ -102,7 +107,7 @@ function NavItem({
             transition={{ duration: 0.2 }}
             className="absolute top-full left-0 pt-2.5 z-50 w-[330px]"
           >
-            <div className="bg-white border border-slate-200 shadow-glass-lg dark:bg-transparent dark:bg-gradient-to-br dark:from-white/[.13] dark:to-[#081226]/[.72] dark:backdrop-blur-3xl dark:backdrop-saturate-150 dark:border-white/20 dark:shadow-[0_18px_44px_rgba(0,0,0,.45)] rounded-[20px] p-2.5 flex flex-col gap-0.5">
+            <div className="bg-white border border-slate-200 shadow-glass-lg dark:bg-[#0A1428]/95 dark:backdrop-blur-xl dark:backdrop-saturate-150 dark:border-white/15 dark:shadow-[0_20px_50px_rgba(0,0,0,.65)] rounded-[20px] p-2.5 flex flex-col gap-0.5">
               {item.children?.map((child) => (
                 <Link
                   key={child.href}
